@@ -40,7 +40,7 @@ if [ $(curl -LI http://google.com -o /dev/null -w '%{http_code}\n' -s) == "200" 
     if [ ICPResult_in_EgressList != "" ]; then
         Region=$(echo $ICPResult_in_EgressList | awk -F, '{print $4}')
         if [ "$Region" = "" ]; then
-            Region="Region unlisted"
+            Region="unlisted"
         fi
     fi
     # here, we set the menu bar icon to either a green sparkle (yay safe!) or a red flag (boo danger!)
@@ -78,7 +78,7 @@ fi
 # echo "iCloud Relay IP: 172.224.224.7 (London)"
 # echo "($Region)"
 echo "Checked: $d"
-echo "Apple ID Preferences... | bash='/bin/bash' param1='-c' param2='/usr/bin/open /System/Library/PreferencePanes/AppleIDPrefPane.prefPane/' terminal=false"
+echo "Apple ID Preferences... | bash='/bin/bash' param1='-c' param2='/usr/bin/open x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings' terminal=false"
 # echo $ICPResult_in_EgressList
 echo ---
 echo "Refresh... | refresh=true"
